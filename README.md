@@ -3,6 +3,9 @@
 Página web educativa que reproduce 4 faixas de áudio sincronizadas e permite
 ativar/desativar cada instrumento individualmente.
 
+**Site publicado:** https://a24franciscofm-dev.github.io/musica-HCLE/
+**Repositório:** https://github.com/a24franciscofm-dev/musica-HCLE
+
 ## Estrutura
 
 | Ficheiro | Descrição |
@@ -16,39 +19,14 @@ ativar/desativar cada instrumento individualmente.
 Os caminhos dos áudios em `index.html` são relativos (`src="faixa1.wav"`), pelo
 que funcionam tanto na raiz como em `https://usuario.github.io/repositorio/`.
 
-## Desplegar no GitHub Pages
+## Como está configurado
 
-### 1. Criar o repositório no GitHub
-
-Cria um repositório vazio (sem README nem `.gitignore`) chamado, por exemplo,
-`Paxina_Fran`, em https://github.com/new.
-
-### 2. Ligar o repositório local e enviar
-
-```bash
-git remote add origin git@github.com:UTILIZADOR/Paxina_Fran.git
-git push -u origin main
-```
-
-> Substitui `UTILIZADOR` pelo teu nome de usuário do GitHub. O `origin` já deve
-> funcionar se a chave SSH estiver configurada (`ssh -T git@github.com`).
-
-### 3. Ativar o GitHub Pages
-
-No repositório: **Settings → Pages → Build and deployment → Source** e escolhe
-**GitHub Actions** (não "Deploy from a branch").
-
-O workflow corre automaticamente no próximo push (ou manualmente em
-**Actions → Deploy a GitHub Pages → Run workflow**).
-
-### 4. URL do site
-
-```
-https://UTILIZADOR.github.io/Paxina_Fran/
-```
-
-Demora 1–2 minutos após o primeiro deploy. Se o repositório se chamar
-`UTILIZADOR.github.io`, a URL será apenas `https://UTILIZADOR.github.io/`.
+- O repositório remoto é `git@github.com:a24franciscofm-dev/musica-HCLE.git`
+  (autenticação por chave SSH).
+- GitHub Pages está com **Source: GitHub Actions**; o workflow
+  `Deploy a GitHub Pages` faz o build e a publicação a cada push em `main`.
+- O passo `configure-pages` usa `enablement: true`, por isso ativa o Pages
+  sozinho se for desativado no futuro.
 
 ## Atualizar o site
 
@@ -58,7 +36,14 @@ git commit -m "Descrição da mudança"
 git push
 ```
 
-Cada push em `main` publica a nova versão automaticamente.
+Cada push em `main` publica a nova versão automaticamente (1–2 minutos). Também
+se pode forçar em **Actions → Deploy a GitHub Pages → Run workflow**.
+
+## Ligar um clone novo
+
+```bash
+git clone git@github.com:a24franciscofm-dev/musica-HCLE.git
+```
 
 ## Notas
 
